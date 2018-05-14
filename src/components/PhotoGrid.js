@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as postsActions from '../actions/postsActions';
 import * as commentsActions from '../actions/commentsActions';
-// import CourseForm from './CourseForm';
 import PropTypes from 'prop-types';
 import Photo from './Photo';
 
@@ -23,12 +22,7 @@ class PhotoGrid extends Component {
         />
       );
     });
-    return (
-      <div>
-        <h1>PhotoGrid</h1>
-        <div className="photo-grid-container">{photos}</div>
-      </div>
-    );
+    return <div className="photo-grid-container">{photos}</div>;
   }
 }
 
