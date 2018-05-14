@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as postsActions from '../actions/postsActions';
 import * as commentsActions from '../actions/commentsActions';
 import Photo from './Photo';
+import Comments from './Comments';
 
 class Single extends Component {
   constructor(props, context) {
@@ -21,13 +22,15 @@ class Single extends Component {
   };
   render() {
     return (
-      <div className="single">
+      <div className="single-photo">
         <Photo
           post={this.state.post}
           index={this.state.postIndex}
           incrementLikes={this.incrementLikes}
           {...this.props}
         />
+
+        <Comments comments={this.props.comments} {...this.props} />
       </div>
     );
   }
@@ -52,11 +55,10 @@ function mapStateToProps(state, ownProps) {
   if (postId && state.posts.length > 0) {
     post = getPostById(state.posts, postId);
   }
-
   return {
     post: post,
     posts: state.posts,
-    comments: state.comments
+    comments: state.comments[postId] || []
   };
 }
 
