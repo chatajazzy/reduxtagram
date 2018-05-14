@@ -7,6 +7,10 @@ import Header from './components/Header';
 import PhotoGrid from './components/PhotoGrid';
 import Single from './components/Single';
 
+import Raven from 'raven-js';
+import { sentry_url } from './data/config';
+Raven.config(sentry_url).install();
+
 class App extends Component {
   render() {
     return (
