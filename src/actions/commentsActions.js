@@ -29,10 +29,10 @@ export function addComment(postId, author, comment) {
 }
 
 // remove comment
-export function removeComment(postId, i) {
+export function removeComment(postId, index) {
   return {
     type: appConstants.REMOVE_COMMENT,
     postId,
-    i
+    index
   };
 }
